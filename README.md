@@ -2,11 +2,10 @@
 
 # <div dir="rtl">عن المشروع</div>
 
-###### <div dir="rtl">هذا المشروع يهدف بالاساس لشرح كيفية جعل عناصر React قابلة للسحب و التحريك (Drag & Drop) مباشرة عن طريق DOM Event Model</div>
+###### <div dir="rtl">هذا المشروع يهدف بالاساس لشرح كيفية جعل عناصر React قابلة للسحب و التحريك (Drag & Drop) عن</div>
 
-###### <div dir="rtl">اذا كنت تريد أن تعرف أكثر عن كيف يتم ذلك, انصحك ان تراجع الرابط التالي: </div>
+###### <div dir="rtl">طريق ما يسمى بـ DOM Event Model ما يعني أن هذا يتم مباشرة عن طريق [HTML Drag'n Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) دون اللجوء الى مكتبات خارجية.</div>
 
-###### <div dir="rtl">[HTML Drag'n Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)</div>
 
 # <div dir="rtl">الهدف</div>
 
@@ -403,7 +402,7 @@ const App = () => {
 };
 ```
 
-![img](./static/img/header.png)
+![img](./static/img/tut5.png)
 
 ###### <div dir="rtl">الان بامكانك تشغيل المشروع</div>
 
