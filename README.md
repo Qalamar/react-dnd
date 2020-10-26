@@ -1,14 +1,20 @@
-# <div dir="rtl">عن المشروع</div>
-###### <div dir="rtl">هذا المشروع يهدف بالاساس لشرح كيفية جعل عناصر React قابلة للسحب و التحريك (Drag & Drop) مباشرة عن طريق DOM Event Model</div>
-###### <div dir="rtl">اذا كنت تريد أن تعرف أكثر عن كيف يتم ذلك, انصحك ان تراجع الرابط التالي: </div>
-###### <div dir="rtl">[HTML Drag'n Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)</div>
+![img](./static/img/header.png)
 
+# <div dir="rtl">عن المشروع</div>
+
+###### <div dir="rtl">هذا المشروع يهدف بالاساس لشرح كيفية جعل عناصر React قابلة للسحب و التحريك (Drag & Drop) مباشرة عن طريق DOM Event Model</div>
+
+###### <div dir="rtl">اذا كنت تريد أن تعرف أكثر عن كيف يتم ذلك, انصحك ان تراجع الرابط التالي: </div>
+
+###### <div dir="rtl">[HTML Drag'n Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)</div>
 
 # <div dir="rtl">الهدف</div>
 
 ###### <div dir="rtl">يسرني أنك قد سئلت, هناك العديد من الاستخدامات للعناصر القابلة للتحريك التي يمكن ان تسهل التعامل مع واجهة المستخدم (UI)</div>
+
 ###### <div dir="rtl">من هذه الناحية خصوصا في البرامج التعليمية او أي حلول تعتمد بشكل كبير على تجاوب المستخدم . بعض الامثلة الحية:</div>
-###### <div dir="rtl">[DrawMuzz](https://drawmuzz.web.app/), [Trello Boards](https://trello.com/), [Google Calendar Scheduler](https://calendar.google.com/)</div> 
+
+###### <div dir="rtl">[DrawMuzz](https://drawmuzz.web.app/), [Trello Boards](https://trello.com/), [Google Calendar Scheduler](https://calendar.google.com/)</div>
 
 # <div dir="rtl">النتيجة النهائية</div>
 
@@ -27,6 +33,7 @@
 ![img](./static/img/tut4.png)
 
 ---
+
 # <div dir="rtl">متطلبات</div>
 
 ###### <div dir="rtl">للقيام بتشغيل وصنع المثال, نحتاج أولا الى تنفيذ بعض الاوامر:</div>
@@ -38,6 +45,7 @@ npm start
 ```
 
 ###### <div dir="rtl">اذا كنت تستعمل Yarn
+
 </div>
 
 ```javascript
@@ -48,14 +56,13 @@ yarn start
 
 ---
 
-
 # <div dir="rtl">تعليمات</div>
 
 ###### <div dir="rtl">توجه الى ملف `App.js`</div>
+
 ##### <div dir="rtl">تخزين المعلومات:</div>
 
 ###### <div dir="rtl">لنقم بانشاء جدول يضم معلومات حول العناصر</div>
-
 
 ```javascript
 const [state, setState] = useState({
@@ -83,6 +90,7 @@ const [state, setState] = useState({
   ],
 });
 ```
+
 ##### <div dir="rtl">معالجة التحريك (Event handlers):</div>
 
 ###### <div dir="rtl">حينما نضغط على العنصر, نقوم بنقل المعلومات مؤقتا</div>
@@ -102,6 +110,7 @@ const onDragOver = (event) => {
 ```
 
 ###### <div dir="rtl">عند وضع العنصر داخل الاطار, نقوم بتحويل المعلومات المعدة سابقا في `OnDragStart`</div>
+
 ###### <div dir="rtl">ونقوم بالتأكد بأن العنصر في الاطار المناسب. بعدها نقوم بتحديث الـstate بالحالة الجديدة</div>
 
 ```javascript
@@ -119,6 +128,7 @@ const onDrop = (event, slot) => {
   });
 };
 ```
+
 ###### <div dir="rtl">عند حدوث تحريك, نقوم بتحديث جداول الخانات في حالة اضافة عناصر جديدة</div>
 
 ###### <div dir="rtl">`لا تنسى ان تضيف "dir="rtl الى عناصرك اذا كنت تستخدم اللغة العربية`</div>
@@ -165,6 +175,7 @@ state.items.forEach((task) => {
 ---
 
 ##### <div dir="rtl">الملف النهائي</div>
+
 ###### <div dir="rtl">حينما تنتهي من اتباع ما سبق, يصبح لديك الملف التالي:</div>
 
 ```javascript
@@ -255,14 +266,14 @@ const App = () => {
   );
 };
 ```
+
 ---
 
 ##### <div dir="rtl">تنسيق</div>
+
 ###### <div dir="rtl">لجعل المشروع في صيغة قابلة للعرض, سنقوم باضافة `TailwindCSS` مما يمكننا من تعديل الواجهة بسهولة</div>
 
-
 ###### <div dir="rtl">`هذه الخطوة اختيارية ويمكنك استعمال CSS فقط أو اي مكتبة تفضل كـBootstrap, Material UI`</div>
-
 
 ##### <div dir="rtl">التعليمات</div>
 
@@ -392,6 +403,8 @@ const App = () => {
 };
 ```
 
+![img](./static/img/header.png)
+
 ###### <div dir="rtl">الان بامكانك تشغيل المشروع</div>
 
 ```javascript
@@ -405,10 +418,11 @@ const App = () => {
 ###### <div dir="rtl">اذا كنت تريد أن تطور حلول تعتمد على تحريك العناصر وبتعقيد أكثر, انصحك بالاضافات التالية:</div>
 
 ###### <div dir="rtl">- [React Beautiful DnD](https://github.com/atlassian/react-beautiful-dnd)</div>
+
 ###### <div dir="rtl">- [React DnD](https://github.com/react-dnd/react-dnd/)</div>
+
 ###### <div dir="rtl">- [React Trello](https://github.com/rcdexta/react-trello)</div>
 
-
 # <div dir="rtl">كلمة أخيرة</div>
-###### <div dir="rtl">شكرا على القراءة حتى هذه النقطة, أتمنى ان يكون هذا الشرح قد أفادك. اذا كانت هناك أي نقاط غير واضحة رجاءا اعلمني بها.</div>
 
+###### <div dir="rtl">شكرا على القراءة حتى هذه النقطة, أتمنى ان يكون هذا الشرح قد أفادك. اذا كانت هناك أي نقاط غير واضحة رجاءا اعلمني بها.</div>
