@@ -2,27 +2,32 @@
 
 # <div dir="rtl">عن المشروع</div>
 
-###### <div dir="rtl">هذا المشروع يهدف بالاساس لشرح كيفية جعل عناصر React قابلة للسحب و التحريك (Drag & Drop) عن</div>
+###### <div dir="rtl">هذا المشروع يهدف بالاساس لشرح كيفية جعل عناصر **React** قابلة للسحب و التحريك **(Drag & Drop)** عن طريق ما يسمى بـ **DOM Event Model** ما يعني أن هذا يتم مباشرة عن طريق [HTML Drag'n Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) دون اللجوء الى مكتبات خارجية.</div>
 
-###### <div dir="rtl">طريق ما يسمى بـ DOM Event Model ما يعني أن هذا يتم مباشرة عن طريق [HTML Drag'n Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) دون اللجوء الى مكتبات خارجية.</div>
-
+<br></br>
 
 # <div dir="rtl">الهدف</div>
 
-###### <div dir="rtl">يسرني أنك قد سئلت, هناك العديد من الاستخدامات للعناصر القابلة للتحريك التي يمكن ان تسهل التعامل مع واجهة المستخدم (UI)</div>
+###### <div dir="rtl">يسرني أنك قد سئلت, هناك العديد من عناصر واجهة المستخدم (UI) التي يمكن ان تتحسن عندما نضيف لها خاصية التحريك, خصوصا بالنسبة للاجهزة التي تعمل باللمس. عموما نجد هذه العناصر في البرامج التعليمية على سبيل المثال او أي حلول تعتمد بشكل كبير على تجاوب المستخدم مع الواجهة. بعض الامثلة: [Trello Boards](https://trello.com/), [Google Calendar Scheduler](https://calendar.google.com/), [DrawMuzz](https://drawmuzz.web.app/)</div>
 
 ###### <div dir="rtl">من هذه الناحية خصوصا في البرامج التعليمية او أي حلول تعتمد بشكل كبير على تجاوب المستخدم . بعض الامثلة الحية:</div>
 
-###### <div dir="rtl">[DrawMuzz](https://drawmuzz.web.app/), [Trello Boards](https://trello.com/), [Google Calendar Scheduler](https://calendar.google.com/)</div>
+<br></br>
 
 # <div dir="rtl">النتيجة النهائية</div>
 
+###### <div dir="rtl">المشروع الذي سنقوم بصنعه:</div>
+
 ![img](./static/img/demonstration.gif)
+
+###### <div dir="rtl">مثال عن كيف يمكن استخدامه في مشروع حقيقي:</div>
+
 ![img](./static/img/demonstration1.gif)
 
 ###### <div dir="rtl">رابط للتجريب: [https://qalamar.github.io/react-dnd-showcase](https://qalamar.github.io/react-dnd-showcase)</div>
 
 ---
+<br></br>
 
 # <div dir="rtl">كيف يعمل المشروع</div>
 
@@ -32,6 +37,7 @@
 ![img](./static/img/tut4.png)
 
 ---
+<br></br>
 
 # <div dir="rtl">متطلبات</div>
 
@@ -43,7 +49,7 @@ cd react-dnd
 npm start
 ```
 
-###### <div dir="rtl">اذا كنت تستعمل Yarn
+###### <div dir="rtl">اذا كنت تستعمل **Yarn**
 
 </div>
 
@@ -54,6 +60,7 @@ yarn start
 ```
 
 ---
+<br></br>
 
 # <div dir="rtl">تعليمات</div>
 
@@ -61,7 +68,7 @@ yarn start
 
 ##### <div dir="rtl">تخزين المعلومات:</div>
 
-###### <div dir="rtl">لنقم بانشاء جدول يضم معلومات حول العناصر</div>
+###### <div dir="rtl">لنقم بانشاء جدول يضم معلومات حول العناصر, هذه المعلومات تتظمن: معرف `id` , محتوى العنصر `item` والخانة الخاصة به `type`.</div>
 
 ```javascript
 const [state, setState] = useState({
@@ -92,7 +99,7 @@ const [state, setState] = useState({
 
 ##### <div dir="rtl">معالجة التحريك (Event handlers):</div>
 
-###### <div dir="rtl">حينما نضغط على العنصر, نقوم بنقل المعلومات مؤقتا</div>
+###### <div dir="rtl">حينما نضغط على العنصر عند بداية التحريك **(onDragStart)**, نقوم بتهيئة معلومات العنصر للنقل عن طريق `dataTransfer.setData`</div>
 
 ```javascript
 const onDragStart = (event, item) => {
@@ -100,7 +107,9 @@ const onDragStart = (event, item) => {
 };
 ```
 
-###### <div dir="rtl">نمنع المعالجة الافتراضية لأننا نريد تطبيق معالجة خاصة</div>
+###### <div dir="rtl">نمنع المعالجة الافتراضية لأننا نريد تطبيق معالجة خاصة (مقارنة الخانات) عند نهاية التحريك **(onDragOver)**
+
+</div>
 
 ```javascript
 const onDragOver = (event) => {
@@ -108,7 +117,8 @@ const onDragOver = (event) => {
 };
 ```
 
-###### <div dir="rtl">عند وضع العنصر داخل الاطار, نقوم بتحويل المعلومات المعدة سابقا في `OnDragStart`</div>
+###### <div dir="rtl">عند وضع العنصر داخل الاطار, نقوم بتحويل المعلومات المعدة سابقا في `dataTransfer.getData` ونقوم بالتأكد بأن العنصر في الاطار المناسب. بعدها نقوم بتحديث الـstate بالحالة الجديدة
+</div>
 
 ###### <div dir="rtl">ونقوم بالتأكد بأن العنصر في الاطار المناسب. بعدها نقوم بتحديث الـstate بالحالة الجديدة</div>
 
@@ -128,7 +138,7 @@ const onDrop = (event, slot) => {
 };
 ```
 
-###### <div dir="rtl">عند حدوث تحريك, نقوم بتحديث جداول الخانات في حالة اضافة عناصر جديدة</div>
+###### <div dir="rtl">عند حدوث تحريك, نقوم بتحديث جداول الخانات في حالة اضافة عنصر جديد</div>
 
 ###### <div dir="rtl">`لا تنسى ان تضيف "dir="rtl الى عناصرك اذا كنت تستخدم اللغة العربية`</div>
 
@@ -147,7 +157,8 @@ state.items.forEach((task) => {
 });
 ```
 
-###### <div dir="rtl">في واجهة المستخدم, نقوم بصنع خانتين. كل منهما تعرض العناصر المطابقة لنوعها</div>
+###### <div dir="rtl">في واجهة المستخدم, نقوم بصنع خانتين. كل منهما تعرض العناصر المطابقة لنوعها من جدول العناصر
+</div>
 
 ```javascript
 <div>
@@ -401,6 +412,7 @@ const App = () => {
   );
 };
 ```
+###### <div dir="rtl">هذا التنسيق يسمح لنا بالحصول على الواجهة التالية</div>
 
 ![img](./static/img/tut5.png)
 
@@ -411,10 +423,11 @@ const App = () => {
 ```
 
 ---
+<br></br>
 
 # <div dir="rtl">ماذا بعد؟</div>
 
-###### <div dir="rtl">اذا كنت تريد أن تطور حلول تعتمد على تحريك العناصر وبتعقيد أكثر, انصحك بالاضافات التالية:</div>
+###### <div dir="rtl">اذا كنت تريد أن تطور حلول اكثر تعقيدا او أن تظيف Animations دون أن تصنع كل شيء يديويا, انصحك بالاضافات مفتوحة المصدر التالية:</div>
 
 ###### <div dir="rtl">- [React Beautiful DnD](https://github.com/atlassian/react-beautiful-dnd)</div>
 
@@ -422,6 +435,9 @@ const App = () => {
 
 ###### <div dir="rtl">- [React Trello](https://github.com/rcdexta/react-trello)</div>
 
+###### <div dir="rtl">سبب اختياري لهذه الاضافات هو لكونها مشهورة نسبيا وتحظى بدعم مستمر من المطورين. أود أيضا أن اذكر بعض المكتبات مثل [Framer Motion](https://www.framer.com/motion) التي تحتوي على خصائص مشابهة</div>
+
 # <div dir="rtl">كلمة أخيرة</div>
 
-###### <div dir="rtl">شكرا على القراءة حتى هذه النقطة, أتمنى ان يكون هذا الشرح قد أفادك. اذا كانت هناك أي نقاط غير واضحة رجاءا اعلمني بها.</div>
+###### <div dir="rtl">شكرا على القراءة حتى هذه النقطة, أتمنى ان يكون الشرح مفيدا وحظا سعيدا في مشاريعكم المقبلة.
+</div>
